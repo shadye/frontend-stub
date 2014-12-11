@@ -1,4 +1,5 @@
-require("./app.styl");
+var index = require("./bundles/index/index.jade");
 
-var contentEle = document.getElementsByClassName("content")[0];
-contentEle.innerHTML += "<br>" + require("./content.js");
+window.onload = function() {
+	console.log(1);
+}
