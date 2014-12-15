@@ -1,5 +1,9 @@
-var index = require("./bundles/index/index.jade");
+var index = require("./bundles/index/index.jade")();
 
 window.onload = function() {
-	console.log(1);
-}
+	document.body.innerHTML = index;
+};
+
+if (module.hot) {
+	module.hot.accept();
+};
