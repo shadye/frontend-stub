@@ -11,6 +11,4 @@ Run Webpack Dev Server [localhost:8080](http://localhost:8080/) or
 
 Get production version with Webpack:
 
-    npm compile
-    # which is equal to
     webpack --progress --colors --optimize-minimize --optimize-dedupe

@@ -19,8 +19,7 @@
     "webpack-dev-server": "^1.4.9"
   },
   "scripts": {
-    "start": "webpack-dev-server --hot--config webpack-dev.config.js --display-errors",
-    "compile": "webpack --progress --colors --optimize-minimize --optimize-dedupe"
+    "start": "webpack-dev-server --hot--config webpack-dev.config.js --display-errors"
   },
   "repository": {
     "type": "git",
