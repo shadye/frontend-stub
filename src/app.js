@@ -1,9 +1,6 @@
-var index = require("./bundles/index/index.jade")();
+require("./app.styl");
+var main = require("./bundles/main.jade")();
 
-window.onload = function() {
-	document.body.innerHTML = index;
-};
-
-if (module.hot) {
-	module.hot.accept();
-};
+var wrap = document.getElementsByClassName("wrapper")[0];
+console.log(main);
+wrap.innerHTML = main;
