@@ -1,6 +1,8 @@
 var ExtractTextPlugin = require("extract-text-webpack-plugin"),
     webpack = require("webpack"),
-    BowerWebpackPlugin = require('bower-webpack-plugin');
+    BowerWebpackPlugin = require('bower-webpack-plugin'),
+    autoprefixer = require('autoprefixer-core'),
+    csswring = require('csswring');
 
 module.exports = {
   entry: [
@@ -15,23 +17,26 @@ module.exports = {
     loaders: [
       {
         test: /\.(png|jpg|gif)$/,
-        loader: "url-loader?prefix=img/&limit=5000"
+        loaders: ["url-loader?prefix=img/&limit=5000", 'image?optimizationLevel=7&interlaced=true&interlaced=true']
       },
       { test: /\.woff2?$/, loader: "url-loader?limit=5000" },
       { test: /\.(eot|ttf|svg)$/, loader: "file-loader" },
-      { test: /\.css$/, loader: "style-loader!css-loader" },
+      { test: /\.css$/, loader: "style-loader!css-loader!postcss-loader" },
       {
         test: /\.styl$/,
         loaders: [
           "style",
           ExtractTextPlugin.extract(),
           "css",
+          "postcss",
           "stylus"
         ]
       },
       { test: /\.jade$/, loader: "jade-loader"}
     ]
   },
+  //for more info see https://github.com/postcss/autoprefixer
+  postcss: [ autoprefixer, csswring],
   plugins: [
     new ExtractTextPlugin("app.css"),
     new BowerWebpackPlugin({
